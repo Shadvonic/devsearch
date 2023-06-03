@@ -130,6 +130,7 @@ STATICFILES_DIRS = [
 ]
 # tells where to upload user generate content
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type
