@@ -52,7 +52,7 @@ def updateProject(request,pk):
     # check method
     if request.method == 'POST':
         # what project its updating 
-        form = ProjectForm(request.POST,request.FILES,instance=project)
+        form = ProjectForm(request.POST, request.FILES, instance=project)
         # check data in valid 
         if form.is_valid():
             # save it 
