@@ -29,7 +29,7 @@ def createProject(request):
     # check method
     if request.method == 'POST':
         # create new instance of form
-        form = ProjectForm(request.POST)
+        form = ProjectForm(request.POST, request.FILES)
         # check data in valid 
         if form.is_valid():
             # save it 
@@ -52,7 +52,7 @@ def updateProject(request,pk):
     # check method
     if request.method == 'POST':
         # what project its updating 
-        form = ProjectForm(request.POST, instance=project)
+        form = ProjectForm(request.POST,request.FILES,instance=project)
         # check data in valid 
         if form.is_valid():
             # save it 
