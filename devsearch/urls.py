@@ -8,7 +8,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # route domain
     # go into projects folder and include urls.py file
-    path('', include('projects.urls'))
+    path('projects/', include('projects.urls')),
+    path('', include('users.urls')),
  
 ]
 

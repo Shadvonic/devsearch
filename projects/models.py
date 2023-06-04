@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from users.models import Profile
 
 # Create your models here.
 
@@ -7,6 +8,8 @@ import uuid
 
 
 class Project(models.Model):
+    # connect project to a certain user 
+    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)
     # create first table col
     title = models.CharField(max_length=200)
     # allowed to not set a description
