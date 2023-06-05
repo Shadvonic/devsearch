@@ -38,7 +38,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    messages.success(request,'User was  logged out')
+    messages.info(request,'User was  logged out')
     return redirect('login')
 
 
@@ -89,3 +89,11 @@ def userProfile(request,pk):
         'otherSkills': otherSkills,
     }
     return render(request, 'users/user-profile.html', context)
+
+
+def userAccount(request): 
+    
+    context = {
+
+    }
+    return render(request, 'users/account.html', context)
