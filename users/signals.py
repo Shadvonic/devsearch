@@ -13,6 +13,18 @@ def createProfile(sender, instance, created, **kwargs):
        profile = Profile.objects.create(user=user, username = user.username, email = user.email, name=user.first_name)
 
 
+
+def updateUser(sender, instance, created, **kwargs):
+    profile = instance
+    user = profile.user
+
+    if created == False:
+        user.first_name = profile.name
+        user.username = profile.username
+        user.email = profile.email 
+        user.save()
+
+
 def deleteUser(sender, instance, **kwargs):
     try:
         print("Deleting user...")
@@ -21,10 +33,10 @@ def deleteUser(sender, instance, **kwargs):
     except User.DoesNotExist:
         print("User does not exist. This has to do with the relationship between User and Profile.")
 
+
+
   
 
-post_save.connect(createProfile, sender=Profile)
-
-
-
+post_save.connect(createProfile, sender=User)
+post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)
